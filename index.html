@@ -3,11 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestión de Casa de Empanadas - Pre-entrega 6</title>
-    <script src="js/main.js" defer></script>
+    <title>Cotizador de Seguros de Autos</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <script src="./js/main.js" defer></script>
 </head>
 <body>
-    <h1> Casa de Empanadas </h1>
-    
+    <div class="main-container">
+        <!-- Columna Izquierda: Formulario y Búsqueda -->
+        <div class="left-column">
+            <h1>Cotizador de Seguros</h1>
+            <p class="subtitle">Entrega 7 - JAVASCRIPT  </p>
+
+            <!-- Formulario para agregar nueva cotización -->
+            <form id="form-cotizacion" class="card-form">
+                <h2>Ingreso Vehiculo a Cotizar</h2>
+                
+                <div class="input-row">
+                    <div class="input-group">
+                        <label for="input-marca">Marca:</label>
+                        <input type="text" id="input-marca" placeholder="Ej: Toyota" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="input-modelo">Modelo:</label>
+                        <input type="text" id="input-modelo" placeholder="Ej: Corolla" required>
+                    </div>
+                </div>
+
+                <div class="input-row">
+                    <div class="input-group">
+                        <label for="input-anio">Año:</label>
+                        <input type="number" id="input-anio" placeholder="2023" min="1990" max="2026" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="input-valor-vehiculo">Valor Vehículo (en miles $):</label>
+                        <input type="number" id="input-valor-vehiculo" placeholder="18500" min="1" required>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="input-cobertura">Cobertura RC=ResCivil, TC=Terc.Completo,TR=TodoRiesgo</label>
+                    <input type="text" id="input-cobertura" placeholder="Ej: TC" maxlength="5" required>
+                </div>
+
+                <button type="submit" id="btn-agregar"> Agregar a la Lista</button>
+            </form>
+
+            <!-- Barra de búsqueda interactiva -->
+            <div class="search-section">
+                <input type="text" id="input-buscar" placeholder="🔍 Buscar por marca, modelo o cobertura...">
+            </div>
+
+            <!-- Feedback Visual Dinámico -->
+            <div id="feedback-msg" class="feedback hidden"></div>
+        </div>
+
+        <!-- Columna Derecha: Vehículos a Cotizar -->
+        <div class="right-column">
+            <section class="list-section">
+                <h2>Vehículos a Cotizar</h2>
+                <ul id="lista-cotizaciones" class="item-list">
+                    <!-- Se inyecta dinámicamente desde main.js -->
+                </ul>
+            </section>
+        </div>
+    </div>
+   
 </body>
 </html>
